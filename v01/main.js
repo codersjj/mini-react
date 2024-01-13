@@ -1,40 +1,31 @@
 // 目标：在页面中呈现 app
 
-// v0.2 使用 VDOM，VDOM 写死，DOM 渲染写死
+// v0.3 使用 VDOM，VDOM 动态生成，DOM 渲染写死
 // react -> VDOM -> JavaScript 对象
 // type、props、children
-// const app = {
-//   type: 'div',
-//   props: {
-//     id: 'app',
-//     children: [
-//       {
-//         type: 'TEXT_ELEMENT',
-//         props: {
-//           nodeValue: 'app',
-//           children: []
-//         }
-//       }
-//     ]
-//   }
-// }
-const tNode = {
-  type: 'TEXT_ELEMENT',
-  props: {
-    nodeValue: 'app',
-    children: []
+const createTextNode = text => {
+  return {
+    type: 'TEXT_ELEMENT',
+    props: {
+      nodeValue: text,
+      children: []
+    }
   }
 }
-const app = {
-  type: 'div',
-  props: {
-    id: 'app',
-    children: [tNode]
+const createElement = (type, props, ...children) => {
+  return {
+    type,
+    props: {
+      ...props,
+      children
+    }
   }
 }
+const tNode = createTextNode('app')
+const App = createElement('div', { id: 'app' }, tNode)
 
-const divEl = document.createElement(app.type)
-divEl.id = app.props.id
+const divEl = document.createElement(App.type)
+divEl.id = App.props.id
 const rootDiv = document.querySelector('#root')
 rootDiv.append(divEl)
 
