@@ -21,5 +21,8 @@ console.log(AppTwo)
 // const App = React.createElement('div', { id: 'app' }, 'app')
 // 所以下面写成 jsx 的格式，vite 会去调用我们自己编写的 React.createElement() 函数
 const App = <div>app</div>
+// function App() {
+//   return <div>app</div>
+// }
 
 export default App
