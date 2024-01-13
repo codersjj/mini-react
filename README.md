@@ -72,3 +72,17 @@
 - 使用或了解过 React 的基本用法，无需 React 源码经验；
 
 准备好了吗？让我们开始吧！
+
+## 目标与路径
+
+### 目标一
+
+在页面中呈现 app，要求自己实现的 mini-react API 和 React 的 API 对齐。
+
+![目标：在页面中呈现 app](./assets/target1.png)
+
+### 目标二
+
+使用 jsx
+
+![目标：使用 jsx](./assets/target2.png)
