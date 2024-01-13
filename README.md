@@ -2,7 +2,7 @@
 
 ## 前言
 
-本项目是一个实践项目，源于催学社的“mini-react 游戏副本”，课程链接：https://nkunu.xetlk.com/s/F6z9B。
+本项目是一个实践项目，源于催学社的“mini-react 游戏副本”，课程链接：https://nkunu.xetlk.com/s/F6z9B
 
 学习痛点：
 
