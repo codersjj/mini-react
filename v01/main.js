@@ -18,12 +18,18 @@ const createElement = (type, props, ...children) => {
     type,
     props: {
       ...props,
-      children
+      children: children.map(child => {
+        return typeof child === 'string'
+          ? createTextNode(child)
+          : child
+      })
     }
   }
 }
-const tNode = createTextNode('app')
-const App = createElement('div', { id: 'app' }, tNode)
+// const tNode = createTextNode('app')
+const App = createElement('div', { id: 'app' }, 'app')
+// const App = createElement('div', { id: 'app' }, 'hi-', 'mini-react')
+// console.log(App)
 //#endregion -------------------- 动态生成 VDOM --------------------
 
 //#region -------------------- 动态渲染 DOM --------------------
