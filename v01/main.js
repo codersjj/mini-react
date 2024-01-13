@@ -1,8 +1,9 @@
 // 目标：在页面中呈现 app
 
-// v0.3 使用 VDOM，VDOM 动态生成，DOM 渲染写死
+// v0.4 使用 VDOM，VDOM 动态生成，DOM 动态渲染
 // react -> VDOM -> JavaScript 对象
 // type、props、children
+//#region -------------------- 动态生成 VDOM --------------------
 const createTextNode = text => {
   return {
     type: 'TEXT_ELEMENT',
@@ -23,13 +24,36 @@ const createElement = (type, props, ...children) => {
 }
 const tNode = createTextNode('app')
 const App = createElement('div', { id: 'app' }, tNode)
+//#endregion -------------------- 动态生成 VDOM --------------------
 
-const divEl = document.createElement(App.type)
-divEl.id = App.props.id
-const rootDiv = document.querySelector('#root')
-rootDiv.append(divEl)
+//#region -------------------- 动态渲染 DOM --------------------
+// const divEl = document.createElement(App.type)
+// divEl.id = App.props.id
+// document.querySelector('#root').append(divEl)
 
-const textNode = document.createTextNode('')
-textNode.nodeValue = tNode.props.nodeValue
-// const textNode = document.createTextNode(tNode.props.nodeValue)
-divEl.append(textNode)
+// const textNode = document.createTextNode('')
+// textNode.nodeValue = tNode.props.nodeValue
+// divEl.append(textNode)
+
+function render(el, container) {
+  const element = el.type === 'TEXT_ELEMENT'
+    ? document.createTextNode('')
+    : document.createElement(el.type)
+
+  // id, class, ...
+  Object.keys(el.props).forEach(prop => {
+    if (prop !== 'children') {
+      element[prop] = el.props[prop]
+    }
+  })
+
+  el.props.children.forEach(child => {
+    // 递归
+    render(child, element)
+  })
+
+  container.append(element)
+}
+
+render(App, document.querySelector('#root'))
+//#endregion -------------------- 动态渲染 DOM --------------------
