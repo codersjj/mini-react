@@ -61,5 +61,16 @@ function render(el, container) {
   container.append(element)
 }
 
-render(App, document.querySelector('#root'))
+// render(App, document.querySelector('#root'))
+
+const ReactDOM = {
+  createRoot(container) {
+    return {
+      render(App) {
+        render(App, container)
+      }
+    }
+  }
+}
+ReactDOM.createRoot(document.querySelector('#root')).render(App)
 //#endregion -------------------- 动态渲染 DOM --------------------
