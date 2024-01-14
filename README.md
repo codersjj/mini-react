@@ -91,4 +91,10 @@
 
 实现任务调度器
 
-![Alt text](./assets/target3.png)
+![目标：实现任务调度器](./assets/target3.png)
+
+### 目标四
+
+实现 fiber 架构
+
+![目标：实现 fiber 架构](./assets/target4.png)
