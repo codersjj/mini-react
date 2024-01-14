@@ -86,3 +86,9 @@
 使用 jsx
 
 ![目标：使用 jsx](./assets/target2.png)
+
+### 目标三
+
+实现任务调度器
+
+![Alt text](./assets/target3.png)
