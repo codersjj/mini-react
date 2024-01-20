@@ -1,4 +1,9 @@
-import React from './core/React.js'
+// https://vitejs.dev/guide/features.html#other-compiler-options-affecting-the-build-result
+// https://www.typescriptlang.org/tsconfig#jsxFactory
+// https://babeljs.io/docs/babel-plugin-transform-react-jsx#customizing-the-classic-runtime-import
+// https://babeljs.io/docs/babel-plugin-transform-react-jsx#pragma
+/** @jsx JReact.createElement */
+import JReact from './core/React.js'
 
 function AppOne() {
   return <div>app</div>
